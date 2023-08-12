@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+
+h1 {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Graduate';
+    top: 2px;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url("/images/bg.jpg");
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-size: contain;
+    background-position: center;
+}
+
+.logo {
+    width: 125px;
+    float: left;
+}
+
+.header {
+    background-color: #091823;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.navbar a {
+    color: #f2f2f2;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-size: 17px;
+    font-family: 'Graduate';
+    float: left;
+    position: relative;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar a:active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.contentBody {
+    padding-left: 16px;
+}
