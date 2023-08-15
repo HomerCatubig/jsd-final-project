@@ -32,6 +32,7 @@ const loadSearchResults = (searchPlayer) => {
             const divTag = document.createElement('div');
             divTag.innerHTML = `
             <img class="card" src="images/2kCard.png" id=logo alt="Player Card" />
+            <img src="images/logo.png" width="5%" id=logo alt="HOOP there it is" />
             <h2 class="firstName">${player.first_name}</h2>
             <h2 class="lastName">${player.last_name}</h2>
             <p class="pposition">${player.position}</p>

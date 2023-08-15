@@ -67,6 +67,12 @@ h1 {
     padding: 14px;
 }
 
+#logo {
+    position: relative;
+    margin-left: 15px;
+    
+}
+
 .playerRes {
     float: left;
     padding: 0 10px;
