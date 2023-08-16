@@ -8,10 +8,13 @@ const searchPlayerNode = document.querySelector('#searchPForm');
 const playerSearchInput = document.querySelector('#searchPlayer');
 const resultsParent = document.querySelector('#searchPResults');
 const allPlayersNode = document.querySelector('#allPlayers');
-
+const allTeamsNode = document.querySelector('#allTeams');
+const teamSearchInput = document.querySelector('#searchTeam');
+const resultsTeamParent = document.querySelector('#searchTResults');
 
 /* ---------------------------------------------- */
 
+/* --- PLAYERS --- */
 // Perform a search when the user submits a form
 searchPlayerNode.addEventListener('submit', ev => {
     console.log('Form submitted!');
@@ -55,4 +58,37 @@ const loadSearchResults = (searchPlayer) => {
     });
 }
 
-// "ternary" operator
+/* --- TEAMS --- */
+// Perform a search when the user submits a form
+allTeamsNode.addEventListener('click', ev => {
+    console.log('Form submitted!');
+    console.log(teamSearchInput.value);
+    ev.preventDefault(); // Stop the form submit from reloading the page
+
+    resultsParent.replaceChildren();
+    allTeamsResults(teamSearchInput.value); // Give the user's input text to AJAX function
+});
+
+const allTeamsResults = () => {
+    axios.get(TEAM_BASE_URL)
+    .then(res1 => {
+        console.log('Response:', res1.data);
+        // console.log(res);
+
+        // Generate DIV for each output
+        res1.data.data.forEach(team => {
+            const divTag = document.createElement('div');
+            divTag.innerHTML = `
+            <img class="card" src="images/2kCard.png" id=logo alt="Team Card" />
+            <p class="team"><b>Team:</b> ${team.name}</p>
+            `;
+
+            divTag.className = 'teamRes';
+
+            resultsTeamParent.appendChild(divTag); 
+        });
+    })
+    .catch(err => {
+        console.warn('Error loading search results:', err);
+    });
+}

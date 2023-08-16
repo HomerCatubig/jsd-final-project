@@ -15,8 +15,8 @@
     <ul class="navigationbar">
       <img src="images/logo1.png" id="logo" width="10%" alt="HOOP there it is">
       <li><a href="index.html">Home</a></li>
-      <li><a href="/players">Players</a></li>
-      <li><a href="/teams">Teams</a></li>
+      <li><a href="index.html">Players</a></li>
+      <li id="allTeams"><a href="index.html">Teams</a></li>
     </ul>
   </nav>
 
@@ -26,11 +26,15 @@
     <form id="searchPForm">
       <input type="text" id="searchPlayer" placeholder="Find a player" margin-bottom="5px">
       <button>Search</button>
+      <input type="text" id="searchTeam" placeholder="Find an NBA team" margin-bottom="5px">
+      <button>Search</button>
     </form>
   </div>
 </br>
 
-  <div id="searchPResults"></div>
+  <div id="searchPResults"></div> <!-- Load Player Results -->
+
+  <div id="searchTResults"></div> <!-- Load Team Results -->
   
   <div class="footer">
     <p>Copyright &copy; 2023 Homer Catubig</p>  
