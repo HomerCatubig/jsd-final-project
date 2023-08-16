@@ -6,13 +6,9 @@
     box-sizing: border-box;
 }
 
-
 body {
-    background-image: url("bg.jpg");
-    /* background-position-y: 110px; */
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* min-height: 100vh; */
+    background-image: url("bg1.webp");
+    background-size: auto;
 }
 
 p {
@@ -36,7 +32,7 @@ margin: 0 20px;
 list-style: none;
 display: inline-block;
 padding: 14px;
-font-size: 17px;
+font-size: 20px;
 }
 
 ul li a{
@@ -46,7 +42,12 @@ color: rgb(255, 255, 255);
 }
 
 ul li a:hover {
-    background-color: rgb(129, 123, 123);
+    background-color: rgb(254, 209, 65);
+    /* background-color: rgb(129, 123, 123); */
+}
+
+#logo {
+    top: auto;
 }
 
 h1 {
@@ -60,22 +61,22 @@ h1 {
 .main {
     margin-left: 5px;
     color: white;
-    padding: 14px;
+    /* padding: 2px; */
 }
 
 .main searchPForm {
-    padding: 14px;
+    padding: 5px;
 }
 
 .playerRes {
     float: left;
-    padding: 0 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 0 5px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 1); /* this adds the "card" effect */
 }
 
 .firstName {
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: black;
     font-size: 25pt;
     position: relative;
     margin-left: 15px;
@@ -85,7 +86,7 @@ h1 {
 
 .lastName {
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: black;
     font-size: 35pt;
     position: relative;
     margin-left: 15px;
@@ -93,14 +94,13 @@ h1 {
     text-transform: uppercase;
 }
 
-.pposition {
+.stats {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    font-size: 2rem;
+    font-size: 18pt;
     position: relative;
-    right: -360px;
-    top: -265px;
-    text-transform: uppercase;
+    margin-left: 15px;
+    top: -343px;
 
 }
 
