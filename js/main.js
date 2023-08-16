@@ -1,10 +1,12 @@
 console.log('Hello from final project!', axios );
 
+/* ----- Global Variables ----------- */
 const PLAYER_BASE_URL = 'https://www.balldontlie.io/api/v1/players/';
-
 const searchPlayerContainer = document.querySelector('#searchPResults');
 const searchPlayerNode = document.querySelector('#searchPForm');
 const playerSearchInput = document.querySelector('#searchPlayer');
+
+/* ---------------------------------------------- */
 
 // Perform a search when the user submits a form
 searchPlayerNode.addEventListener('submit', ev => {
@@ -27,13 +29,18 @@ const loadSearchResults = (searchPlayer) => {
     .then(res => {
         searchPlayerContainer.replaceChildren();
         // console.log('Response:', res.data);
-        console.log(res);
+        // console.log(res);
+
+        
+
+        // Generate DIV for each output
         res.data.data.forEach(player => {
             const divTag = document.createElement('div');
             divTag.innerHTML = `
             <img class="card" src="images/2kCard.png" id=logo alt="Player Card" />
             <h2 class="firstName">${player.first_name}</h2>
             <h2 class="lastName">${player.last_name}</h2>
+            
             <p class="pposition">${player.position}</p>
             `;
 
