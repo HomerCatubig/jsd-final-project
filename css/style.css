@@ -121,6 +121,12 @@ h1 {
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 1); /* this adds the "card" effect */
 }
 
+.teamrlt {
+    float: left;
+    padding: 0 5px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 1); /* this adds the "card" effect */
+}
+
 .teamFN {
     font-family: Arial, Helvetica, sans-serif;
     color: #CE1126;

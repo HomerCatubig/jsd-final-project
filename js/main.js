@@ -11,8 +11,10 @@ const resultsParent = document.querySelector('#searchPResults');
 const allPlayersNode = document.querySelector('#allPlayers');
 // --- TEAMS --- //
 const allTeamsNode = document.querySelector('#allTeams');
+const teamSearchNode = document.querySelector('#searchTForm');
 const teamSearchInput = document.querySelector('#searchTeam');
 const resultsTeamParent = document.querySelector('#searchTResults');
+const resultsTeam = document.querySelector('#searchTResults');
 
 /* ---------------------------------------------- */
 
@@ -62,13 +64,58 @@ const loadSearchResults = (searchPlayer) => {
 }
 
 /* --- TEAMS --- */
-// Load ALL teams when the "TEAMS" link is clicked
-allTeamsNode.addEventListener('click', ev => {
+// Search for a particular Team
+
+teamSearchNode.addEventListener('submit', ev1 => {
     console.log('Form submitted!');
     console.log(teamSearchInput.value);
-    ev.preventDefault(); // Stop the form submit from reloading the page
+    ev1.preventDefault(); // Stop the form submit from reloading the page
 
-    resultsParent.replaceChildren();
+    // resultsTeam.replaceChildren();
+    loadTeamSearch(teamSearchInput.value); // Give the user's input text to AJAX function
+});
+
+const loadTeamSearch = (searchTeam) => {
+
+    axios.get(TEAM_BASE_URL, {
+        params: {
+            search: searchTeam,
+        }
+    })
+    .then(tres => {
+        console.log('Response:', tres.data);
+        console.log(tres);
+
+        // Generate DIV for each output
+        tres.data.data.forEach(team => {
+            const divTagT = document.createElement('div');
+            divTagT.innerHTML = `
+            <img class="card" src="images/2kCard.jpg" id=logo alt="Team Card" />
+            <p class="team"><b></b> ${team.name}</p>
+            <p class="teamFN"><b>${team.full_name}</b></p>
+            <p class="teamInfo"><b>City:</b> ${team.city}</p>
+            <p class="teamInfo"><b>Conference:</b> ${team.conference}</p>
+            <p class="teamInfo"><b>Division:</b> ${team.division}</p>
+            <p class="abrv"><b>${team.abbreviation}</b></p>
+            `;
+
+            divTagT.className = 'teamrlt';
+
+            resultsTeam.appendChild(divTagT); 
+        });
+    })
+    .catch(err => {
+        console.warn('Error loading search results:', err);
+    });
+}
+
+// Load ALL teams when the "TEAMS" link is clicked
+allTeamsNode.addEventListener('click', ev2 => {
+    console.log('Form submitted!');
+    // console.log(teamSearchInput.value);
+    ev2.preventDefault(); // Stop the form submit from reloading the page
+
+    resultsTeamParent.replaceChildren();
     allTeamsResults(teamSearchInput.value); // Give the user's input text to AJAX function
 });
 
@@ -92,56 +139,6 @@ const allTeamsResults = () => {
             `;
 
             divTag.className = 'teamRes';
-
-            resultsTeamParent.appendChild(divTag); 
-        });
-    })
-    .catch(err => {
-        console.warn('Error loading search results:', err);
-    });
-}
-
-// Search for a particular Team
-// const allTeamsNode = document.querySelector('#allTeams');
-// const teamSearchInput = document.querySelector('#searchTeam');
-// const resultsTeamParent = document.querySelector('#searchTResults');
-
-allTeamsNode.addEventListener('submit', ev => {
-    console.log('Form submitted!');
-    console.log(teamSearchInput.value);
-    ev.preventDefault(); // Stop the form submit from reloading the page
-
-    resultsParent.replaceChildren();
-    loadTeamResults(teamSearchInput.value); // Give the user's input text to AJAX function
-});
-
-const loadTeamResults = (name, teamCity, abrv) => {
-
-    axios.get(TEAM_BASE_URL, {
-        params: {
-            search: name,
-            city: teamCity,
-            abbreviation: abrv,
-        }
-    })
-    .then(tres => {
-        console.log('Response:', tres.data);
-        // console.log(res);
-
-        // Generate DIV for each output
-        tres.data.data.forEach(team => {
-            const divTag = document.createElement('div');
-            divTag.innerHTML = `
-            <img class="card" src="images/2kCard.jpg" id=logo alt="Team Card" />
-            <p class="team"><b></b> ${team.name}</p>
-            <p class="teamFN"><b>${team.full_name}</b></p>
-            <p class="teamInfo"><b>City:</b> ${team.city}</p>
-            <p class="teamInfo"><b>Conference:</b> ${team.conference}</p>
-            <p class="teamInfo"><b>Division:</b> ${team.division}</p>
-            <p class="abrv"><b>${team.abbreviation}</b></p>
-            `;
-
-            divTag.className = 'teamres';
 
             resultsTeamParent.appendChild(divTag); 
         });
