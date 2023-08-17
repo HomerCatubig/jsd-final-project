@@ -40,9 +40,10 @@ const loadSearchResults = (searchPlayer) => {
         res.data.data.forEach(player => {
             const divTag = document.createElement('div');
             divTag.innerHTML = `
-            <img class="card" src="images/2kCard.png" id=logo alt="Player Card" />
+            <img class="card" src="images/2kCard.jpg" id=logo alt="Player Card" />
             <h2 class="firstName">${player.first_name}</h2>
             <h2 class="lastName">${player.last_name}</h2>
+            <p class="stats"><b>Player information:</b></p>
             <p class="stats"><b>Position:</b> ${player.position === '' ? "-" : player.position }</p>
             <p class="stats"><b>Height:</b> ${player.height_feet === null ? "-" : player.height_feet} ft ${player.height_inches === null ? "-" : player.height_inches} in</p>
             <p class="stats"><b>Team:</b> ${player.team.full_name}</p>
@@ -79,8 +80,13 @@ const allTeamsResults = () => {
         res1.data.data.forEach(team => {
             const divTag = document.createElement('div');
             divTag.innerHTML = `
-            <img class="card" src="images/2kCard.png" id=logo alt="Team Card" />
-            <p class="team"><b>Team:</b> ${team.name}</p>
+            <img class="card" src="images/2kCard.jpg" id=logo alt="Team Card" />
+            <p class="team"><b></b> ${team.name}</p>
+            <p class="teamFN"><b>${team.full_name}</b></p>
+            <p class="teamInfo"><b>City:</b> ${team.city}</p>
+            <p class="teamInfo"><b>Conference:</b> ${team.conference}</p>
+            <p class="teamInfo"><b>Division:</b> ${team.division}</p>
+            <p class="abrv"><b>${team.abbreviation}</b></p>
             `;
 
             divTag.className = 'teamRes';

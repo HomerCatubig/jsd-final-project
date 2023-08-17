@@ -97,12 +97,67 @@ h1 {
 .stats {
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    font-size: 18pt;
+    font-size: 16pt;
     position: relative;
     margin-left: 15px;
-    top: -340px;
-
+    top: -350px;
 }
+
+@font-face {
+    font-family: nba1;
+    src: url('/fonts/mavs2.ttf');
+}
+
+.team {
+    font-family: nba1;
+    color: #0038A8;
+    font-size: 40pt;
+    font-weight: bold;
+    position: relative;
+    /* margin-left: 2px; */
+    bottom: 87px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.teamRes {
+    float: left;
+    padding: 0 5px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 1); /* this adds the "card" effect */
+}
+
+.teamFN {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #CE1126;
+    font-size: 20pt;
+    position: relative;
+    margin-left: 15px;
+    top: -310px;
+}
+
+.teamInfo {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 16pt;
+    position: relative;
+    margin-left: 15px;
+    top: -310px;
+}
+
+@font-face {
+    font-family: nba;
+    src: url('/fonts/mavs1.ttf');
+}
+
+.abrv {
+    font-family: nba;
+    color: #CE1126;
+    font-size: 50pt;
+    position: relative;
+    top: -390px;
+    left: 270px;
+}
+
 
 .footer {
     font-family: Arial, Helvetica, sans-serif;
