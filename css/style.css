@@ -103,13 +103,8 @@ h1 {
     top: -350px;
 }
 
-@font-face {
-    font-family: nba1;
-    src: url('/fonts/mavs2.ttf');
-}
-
 .team {
-    font-family: nba1;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #0038A8;
     font-size: 40pt;
     font-weight: bold;
@@ -144,13 +139,8 @@ h1 {
     top: -310px;
 }
 
-@font-face {
-    font-family: nba;
-    src: url('/fonts/mavs1.ttf');
-}
-
 .abrv {
-    font-family: nba;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #CE1126;
     font-size: 50pt;
     position: relative;

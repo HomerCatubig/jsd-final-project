@@ -60,7 +60,7 @@ const loadSearchResults = (searchPlayer) => {
 }
 
 /* --- TEAMS --- */
-// Perform a search when the user submits a form
+// Load all teams when the "TEAMS" link is clicked
 allTeamsNode.addEventListener('click', ev => {
     console.log('Form submitted!');
     console.log(teamSearchInput.value);
