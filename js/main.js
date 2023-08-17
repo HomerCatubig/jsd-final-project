@@ -3,11 +3,13 @@ console.log('Hello from final project!', axios );
 /* ----- Global Variables ----------- */
 const PLAYER_BASE_URL = 'https://www.balldontlie.io/api/v1/players/';
 const TEAM_BASE_URL = 'https://www.balldontlie.io/api/v1/teams/';
+// --- PLAYERS --- //
 const searchPlayerContainer = document.querySelector('#searchPResults');
 const searchPlayerNode = document.querySelector('#searchPForm');
 const playerSearchInput = document.querySelector('#searchPlayer');
 const resultsParent = document.querySelector('#searchPResults');
 const allPlayersNode = document.querySelector('#allPlayers');
+// --- TEAMS --- //
 const allTeamsNode = document.querySelector('#allTeams');
 const teamSearchInput = document.querySelector('#searchTeam');
 const resultsTeamParent = document.querySelector('#searchTResults');
@@ -60,7 +62,7 @@ const loadSearchResults = (searchPlayer) => {
 }
 
 /* --- TEAMS --- */
-// Load all teams when the "TEAMS" link is clicked
+// Load ALL teams when the "TEAMS" link is clicked
 allTeamsNode.addEventListener('click', ev => {
     console.log('Form submitted!');
     console.log(teamSearchInput.value);
@@ -90,6 +92,56 @@ const allTeamsResults = () => {
             `;
 
             divTag.className = 'teamRes';
+
+            resultsTeamParent.appendChild(divTag); 
+        });
+    })
+    .catch(err => {
+        console.warn('Error loading search results:', err);
+    });
+}
+
+// Search for a particular Team
+// const allTeamsNode = document.querySelector('#allTeams');
+// const teamSearchInput = document.querySelector('#searchTeam');
+// const resultsTeamParent = document.querySelector('#searchTResults');
+
+allTeamsNode.addEventListener('submit', ev => {
+    console.log('Form submitted!');
+    console.log(teamSearchInput.value);
+    ev.preventDefault(); // Stop the form submit from reloading the page
+
+    resultsParent.replaceChildren();
+    loadTeamResults(teamSearchInput.value); // Give the user's input text to AJAX function
+});
+
+const loadTeamResults = (name, teamCity, abrv) => {
+
+    axios.get(TEAM_BASE_URL, {
+        params: {
+            search: name,
+            city: teamCity,
+            abbreviation: abrv,
+        }
+    })
+    .then(tres => {
+        console.log('Response:', tres.data);
+        // console.log(res);
+
+        // Generate DIV for each output
+        tres.data.data.forEach(team => {
+            const divTag = document.createElement('div');
+            divTag.innerHTML = `
+            <img class="card" src="images/2kCard.jpg" id=logo alt="Team Card" />
+            <p class="team"><b></b> ${team.name}</p>
+            <p class="teamFN"><b>${team.full_name}</b></p>
+            <p class="teamInfo"><b>City:</b> ${team.city}</p>
+            <p class="teamInfo"><b>Conference:</b> ${team.conference}</p>
+            <p class="teamInfo"><b>Division:</b> ${team.division}</p>
+            <p class="abrv"><b>${team.abbreviation}</b></p>
+            `;
+
+            divTag.className = 'teamres';
 
             resultsTeamParent.appendChild(divTag); 
         });

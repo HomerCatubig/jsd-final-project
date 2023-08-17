@@ -110,7 +110,7 @@ h1 {
     font-weight: bold;
     position: relative;
     /* margin-left: 2px; */
-    bottom: 87px;
+    bottom: 95px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -124,25 +124,25 @@ h1 {
 .teamFN {
     font-family: Arial, Helvetica, sans-serif;
     color: #CE1126;
-    font-size: 20pt;
+    font-size: 18pt;
     position: relative;
     margin-left: 15px;
-    top: -310px;
+    top: -315px;
 }
 
 .teamInfo {
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    font-size: 16pt;
+    font-size: 14pt;
     position: relative;
     margin-left: 15px;
-    top: -310px;
+    top: -315px;
 }
 
 .abrv {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #CE1126;
-    font-size: 50pt;
+    font-size: 30pt;
     position: relative;
     top: -390px;
     left: 270px;
